@@ -1,5 +1,8 @@
 I created this script for personal uses with the pytube library.
 
+The unique library needed to be installed is pytube with the command:
+"pip install pytube"
+
 Videos will be created in the actual directory "yt-downloader" you have with 
 new folders in created by the script. You could change it modifying the 
 necessary rows in the code.

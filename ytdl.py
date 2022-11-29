@@ -13,7 +13,7 @@ print("--------------------------------")
 print("Is this a playlist(P) or an unique video(V)?","\n",end="")
 response = str(input).capitalize()
 
-dl_data_txt = f"{username_path}/yt-downloader/dl_data.txt"
+dl_data_txt = f"{username_path}/yt-downloader/downloader_compilation.txt"
 dl_data_open = open(dl_data_txt, "a")
 file_ext = []
 

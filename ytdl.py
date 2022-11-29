@@ -116,8 +116,9 @@ while response == "P" or response != "V":
             option = input("Chosen option: ")
             print("")
             
+            count = 1
+            
             if(option == "1"):
-                count = 1
                 dl_data_open.write("\n" + f"Videos High Quality inserted in '{folder_hq}' folder" + "\n")
                 for url in playlist.video_urls:
                     yt = pytube.YouTube(url)
@@ -131,7 +132,7 @@ while response == "P" or response != "V":
                     
                     print("Video {} downloaded: {}".format(count, title_ext))
                     
-                    dl_data_open.write("\n" + f"Video {count} downloaded: '{title_ext.capitalize()}'")
+                    dl_data_open.write("\n" + f"Video HQ {count} downloaded: '{title_ext.capitalize()}'")
                     
                     count += 1
                 
@@ -141,7 +142,6 @@ while response == "P" or response != "V":
                     .format(folder_hq))
                 
             elif(option == "2"):
-                count = 1
                 dl_data_open.write("\n" + f"Videos Low Quality inserted in '{folder_lq}' folder" + "\n")
                 for url in playlist.video_urls:
                     yt = pytube.YouTube(url)
@@ -155,7 +155,7 @@ while response == "P" or response != "V":
                     
                     print("Video {} downloaded: {}".format(count, title_ext))
                     
-                    dl_data_open.write("\n" + f"Video {count} downloaded: '{title_ext.capitalize()}'")
+                    dl_data_open.write("\n" + f"Video LQ {count} downloaded: '{title_ext.capitalize()}'")
                     
                     count += 1
                     
@@ -165,7 +165,6 @@ while response == "P" or response != "V":
                     .format(folder_lq))
                      
             elif(option == "3"):
-                count = 1
                 dl_data_open.write("\n" + f"Audios inserted in '{folder_a}' folder" + "\n")
                 for url in playlist.video_urls:
                     yt = pytube.YouTube(url)

@@ -2,6 +2,10 @@ import pytube
 from pytube import Playlist
 import re
 from datetime import datetime
+import os
+
+# It returns /home/YOUR_USER_PATH_HERE/...
+username_path=os.path.expanduser(path="~")
 
 print("WELCOME TO THE DOWNLOADER SYSTEM")
 print("--------------------------------")
@@ -9,8 +13,8 @@ print("--------------------------------")
 print("Is this a playlist(P) or an unique video(V)?","\n",end="")
 response = str(input).capitalize()
 
-dl_data_txt = "/home/bunger101/yt-downloader/dl_data.txt"
-dl_data_open = open("/home/bunger101/yt-downloader/dl-data.txt", "a")
+dl_data_txt = f"{username_path}/yt-downloader/dl_data.txt"
+dl_data_open = open(dl_data_txt, "a")
 file_ext = []
 
 today = datetime.now()
@@ -132,7 +136,7 @@ while response == "P" or response != "V":
                     
                     print("Video {} downloaded: {}".format(count, title_ext))
                     
-                    dl_data_open.write("\n" + f"Video HQ {count} downloaded: '{title_ext.capitalize()}'")
+                    dl_data_open.write("\n" + f"Video {count} downloaded: '{title_ext.capitalize()}'")
                     
                     count += 1
                 

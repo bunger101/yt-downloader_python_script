@@ -9,7 +9,7 @@ necessary rows in the code.
 
 The root should be:
 "/home/YOUR_USER_PATH_HERE/yt-downloader"
-(You could change those parameters, in the ""line 9"" and ""line 17"")
+(You could change those parameters, in the ""line 11"" and ""line 19"")
 
 ,and the folders created:
 
@@ -40,7 +40,7 @@ SLASH LINE ("/") IN THE VIDEOS TITLES. FOR EXAMPLE:
 >Title 2: "Mind Relax Lo-fi | Mashup Lofi Songs | Feel The Music | Remix / Lofi/"
 
 IT'S NOT ANYMORE A PROBLEM because all those strange characters are ignored
-in the ""line 36"" where the "list_comand" variable is defined. 
+in the ""line 38"" where the "list_comand" variable is defined. 
 If you want to exlude any other character you just need to introduce it in this 
 variable.
 

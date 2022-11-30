@@ -9,6 +9,7 @@ necessary rows in the code.
 
 The root should be:
 "/home/YOUR_USER_PATH_HERE/yt-downloader"
+(You could change those parameters, in the ""line 9"" and ""line 17"")
 
 ,and the folders created:
 

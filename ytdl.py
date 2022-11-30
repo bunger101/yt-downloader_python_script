@@ -4,6 +4,8 @@ from pytube import YouTube
 import re
 from datetime import datetime
 import os
+from moviepy.video.io.VideoFileClip import AudioFileClip
+import pytube
 
 # It returns /home/YOUR_USER_PATH_HERE/...
 username_path=os.path.expanduser(path="~")
@@ -100,10 +102,16 @@ while response == "P" or response != "V":
                 dl_data_open.write("\n" + f"'{title_ext.capitalize()}' has been downloaded in '{folder_lq}' folder; Duration: {time_fill}" + "\n" + lines_str + line_incr)
             elif(option == "3"):
                 print("Downloading the audio... Wait a moment, please.")
+                print()
                 audio = yt.streams.get_audio_only()
                 title_ext = title + str("_a") + str(".mp4")
-                audio.download(output_path=folder_a, filename=title_ext)         # type: ignore
-                print("\n", f"'{title_ext}' has been downloaded in '{folder_a}' folder; Duration: {time_fill}")
+                Audio = audio.download(output_path=folder_a, filename=title_ext)         # type: ignore
+                
+                clip = AudioFileClip(Audio)
+                print("2 files with extension '.mp4' and '.mp3' with same size in bytes format will be created:")
+                clip.write_audiofile(Audio[:-4] + ".mp3")
+                clip.close()
+
                 common_line
                 dl_data_open.write("\n" + f"'{title_ext.capitalize()}' has been downloaded in '{folder_a}' folder; Duration: {time_fill}" + "\n" + lines_str + line_incr)
             else:
@@ -242,9 +250,11 @@ while response == "P" or response != "V":
                     title_ext = title + str("_a") + str(".mp4")
 
                     audio = yt.streams.get_audio_only()
-                    audio.download(output_path=folder_a, filename=title_ext)     # type: ignore
+                    Audio =audio.download(output_path=folder_a, filename=title_ext)     # type: ignore
 
-                    print("Audio {} downloaded: {}".format(count, title_ext), f"; Duration of {time_fill}")
+                    clip = AudioFileClip(Audio)
+                    clip.write_audiofile(Audio[:-4] + ".mp3")
+                    clip.close()
 
                     dl_data_open.write("\n" + f"Audio {count} with a duration of {time_fill} downloaded: '{title_ext.capitalize()}'")
 

@@ -16,7 +16,7 @@ response = str(input).capitalize()
 
 dl_data_txt = f"{username_path}/yt-downloader/downloader_compilation.txt"
 dl_data_open = open(dl_data_txt, "a")
-file_ext = []
+# file_ext = []
 
 today = datetime.now()
 today_dl = '{:Date of download: %d %B of %Y : %A at %H:%M:%S}'.format(today)

@@ -4,6 +4,8 @@ from pytube import YouTube
 import re
 from datetime import datetime
 import os
+from os import remove
+from os import path
 from moviepy.video.io.VideoFileClip import AudioFileClip
 import pytube
 
@@ -108,8 +110,8 @@ while response == "P" or response != "V":
                 Audio = audio.download(output_path=folder_a, filename=title_ext)         # type: ignore
                 
                 clip = AudioFileClip(Audio)
-                print("2 files with extension '.mp4' and '.mp3' with same size in bytes format will be created:")
                 clip.write_audiofile(Audio[:-4] + ".mp3")
+                remove(f'{folder_a}{title_ext}')
                 clip.close()
 
                 common_line
@@ -254,6 +256,7 @@ while response == "P" or response != "V":
 
                     clip = AudioFileClip(Audio)
                     clip.write_audiofile(Audio[:-4] + ".mp3")
+                    remove(f'{folder_a}{title_ext}')
                     clip.close()
 
                     dl_data_open.write("\n" + f"Audio {count} with a duration of {time_fill} downloaded: '{title_ext.capitalize()}'")

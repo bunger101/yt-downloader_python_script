@@ -44,6 +44,10 @@ in the ""line 38"" where the "list_comand" variable is defined.
 If you want to exlude any other character you just need to introduce it in this 
 variable.
 
+ALSO BE CAUTIOS IF YOU DOWNLOAD SOME VIDEO WITH RESTRICTION OF AGE, BECAUSE
+IT WILL STOP THE BUCLE FOR AND IT WILL BE TEDIOUS TO CREATE ANOTHER PLAYLIST
+TO START FROM BUCLE FOR ENDED. (¡WORKING ON IT!)
+
 "-----------------------------------------------------------------------------"
 
 Also in the ""line 38"" you can change, if you desire, the maximum length

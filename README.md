@@ -1,4 +1,4 @@
-I created this script for personal uses with the pytube library.
+I created this script for personal uses with the "pytube" library.
 
 The unique library needed to be installed is pytube with the command:
 "pip install pytube"
@@ -32,16 +32,21 @@ Playlists formats accepted (as I know, maybe could be other ones):
 
 "---------------------------------IMPORTANT-----------------------------------"
 
-THIS SCRIPT DO NOT HAS YET A SOLVING FOR VIDEOS THAT INCLUDES A
+THIS SCRIPT IT HAS  A SOLVING FOR VIDEOS THAT INCLUDES A
 SLASH LINE ("/") IN THE VIDEOS TITLES. FOR EXAMPLE:
 
 >Title 1: "歌詞付き】 REPLAY/三代目 J SOUL BROTHERS from EXILE TRIBE"
 >Title 2: "Mind Relax Lo-fi | Mashup Lofi Songs | Feel The Music | Remix / Lofi/"
 
-SO MAKE SURE ALL YOUR VIDEOS DO NOT CONTAIN IN THEIR TITLE A SLASH LINE!
+IT'S NOT ANYMORE A PROBLEM because all those strange characters are ignored
+in the ""line 36"" where the "list_comand" variable is defined. 
+If you want to exlude any other character you just need to introduce it in this 
+variable.
 
 "-----------------------------------------------------------------------------"
 
+Also in the ""line 38"" you can change, if you desire, the maximum length
+the string, defined in the variable "title", must have.
 
 Hope it was useful for you.
 

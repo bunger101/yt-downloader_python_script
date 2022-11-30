@@ -35,7 +35,7 @@ folder_a = "output_a/"
 folder_hq ="output_hq/"
 folder_lq ="output_lq/"
 
-list_comands = ['\"', '|', ',', '/', '\\', '//', ':', '*', '?', '<', '>', '.', ';']
+list_comands = ['\"', '|', ',', '/', '\\', '//', ':', '*', '?', '<', '>', '.', ';', '~', '{', '}', 'º', 'ª', '%', '$', '#']
 
 mod_par = 30
 # Modificable Parameter: Maximum length the string must have 

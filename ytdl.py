@@ -139,6 +139,7 @@ while response == "P" or response != "V":
                     break
 
             playlist = Playlist(url_playlist_in)
+            n_urls = len(playlist.video_urls)
 
             print("Choose the desired option (type: int):")
             print("1 - HD Video")
@@ -177,7 +178,7 @@ while response == "P" or response != "V":
                     videoHD.download(output_path=folder_hq,                      # type: ignore
                                      filename=title_ext)
 
-                    print("Video {} downloaded: {}".format(count, title_ext))
+                    print("Video {} of {} downloaded: {}".format(count, n_urls, title_ext))
 
                     dl_data_open.write("\n" + f"Video {count} with a duration of {time_fill} downloaded: '{title_ext.capitalize()}'")
 
@@ -216,7 +217,7 @@ while response == "P" or response != "V":
                     videoLD.download(output_path=folder_lq,                      # type: ignore
                                      filename=title_ext)
 
-                    print("Video {} downloaded: {}".format(count, title_ext))
+                    print("Video {} of {} downloaded: {}".format(count, n_urls, title_ext))
 
                     dl_data_open.write("\n" + f"Video LQ {count} with a duration of {time_fill} downloaded: '{title_ext.capitalize()}'")
 

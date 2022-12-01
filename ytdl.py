@@ -7,7 +7,6 @@ import os
 from os import remove
 from os import path
 from moviepy.video.io.VideoFileClip import AudioFileClip
-import pytube
 
 # It returns /home/YOUR_USER_PATH_HERE/...
 username_path=os.path.expanduser(path="~")
@@ -140,6 +139,49 @@ while response == "P" or response != "V":
 
             playlist = Playlist(url_playlist_in)
             n_urls = len(playlist.video_urls)
+            
+            count = 1
+            
+            dl2_data_txt = f"{username_path}/yt-downloader/info-videos.txt"
+            dl2_data_open = open(dl2_data_txt, "w")
+            dl2_data_open.write(f"N | Artist/Title/Author/Characters" + "\n" + "----------------------------------" + "\n")
+            for url_title in playlist.video_urls:
+                yt_url_title = pytube.YouTube(url_title)
+                title_url = yt_url_title.title
+                if len(title_url) > mod_par:
+                    title_fast = len(title_url) - mod_par
+                    title_url = title_url[:-title_fast]
+                dl2_data_open = open(dl2_data_txt, "a")
+                dl2_data_open.write(f"{count} | {title_url}'" + "\n")
+                count += 1
+            dl2_data_open.close()
+
+            print("Before responding! To see 'N' column, take a view at the 'info-videos.txt' generated file and chose the range between these integers.")
+            print("Do you want to begin downloading between some range of videos? [Yes/No]: ", end="")
+            switch = str(input().capitalize())
+            print("")
+
+            while "Yes" or "No" in switch:
+                if switch == "Yes":
+                    print(f"Introduce the initial and the final range between them [1-{n_urls}] -> (NOTE: if IR < 1 then IR=1 ; if FR > {n_urls} then FR={n_urls}: ")
+                    print("Initial range (IR): ", end="")
+                    i_range = int(input())
+                    if i_range < 1:
+                        print("You've assigned a number less than 1, so it will begin from the first one.")
+                        i_range = 1
+                    print("Final range (FR): ", end="")
+                    f_range = int(input())
+                    if f_range > n_urls:
+                        print(f"You've assigned a number bigger than {n_urls}, so it will give the last video's URL.")
+                        f_range = n_urls
+                    break
+                elif switch == "No":
+                    i_range = 1
+                    f_range = n_urls
+                    break
+                print("Try again, only 'Yes' or 'No': ", end="")
+                switch = str(input()).capitalize()
+            print("")
 
             print("Choose the desired option (type: int):")
             print("1 - HD Video")
@@ -148,11 +190,9 @@ while response == "P" or response != "V":
             option = input("Chosen option: ")
             print("")
 
-            count = 1
-
             if(option == "1"):
                 dl_data_open.write("\n" + f"Videos High Quality inserted in '{folder_hq}' folder" + "\n")
-                for url in playlist.video_urls:
+                for url in playlist.video_urls[i_range-1:f_range]:
                     yt = pytube.YouTube(url)
                     title = yt.title
 
@@ -191,7 +231,7 @@ while response == "P" or response != "V":
 
             elif(option == "2"):
                 dl_data_open.write("\n" + f"Videos Low Quality inserted in '{folder_lq}' folder" + "\n")
-                for url in playlist.video_urls:
+                for url in playlist.video_urls[i_range-1:f_range]:
                     yt = pytube.YouTube(url)
                     title = yt.title
 
@@ -230,7 +270,7 @@ while response == "P" or response != "V":
 
             elif(option == "3"):
                 dl_data_open.write("\n" + f"Audios inserted in '{folder_a}' folder" + "\n")
-                for url in playlist.video_urls:
+                for url in playlist.video_urls[i_range-1:f_range]:
                     yt = pytube.YouTube(url)
                     title = yt.title
 

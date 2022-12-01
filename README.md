@@ -9,7 +9,7 @@ necessary rows in the code.
 
 The root should be:
 "/home/YOUR_USER_PATH_HERE/yt-downloader"
-(You could change those parameters, in the ""line 11"" and ""line 19"")
+(You could change those parameters, in the ""line 12"" and ""line 20"")
 
 ,and the folders created:
 
@@ -18,7 +18,7 @@ The root should be:
 3- "output-a/" for the audio in ".mp3" extension.
 
 Also it will be created a file with the name "download_compilation.txt" where
-all downloads ar archived to have a data follow of the time every download
+all downloads are archived to have a data follow of the time every download
 was effected. 
 
 Videos formats accepted (as I know, maybe could be other ones):
@@ -40,13 +40,24 @@ SLASH LINE ("/") IN THE VIDEOS TITLES. FOR EXAMPLE:
 >Title 2: "Mind Relax Lo-fi | Mashup Lofi Songs | Feel The Music | Remix / Lofi/"
 
 IT'S NOT ANYMORE A PROBLEM because all those strange characters are ignored
-in the ""line 38"" where the "list_comand" variable is defined. 
+in the ""line 39"" where the "list_comand" variable is defined. 
 If you want to exlude any other character you just need to introduce it in this 
 variable.
 
-ALSO BE CAUTIOS IF YOU DOWNLOAD SOME VIDEO WITH RESTRICTION OF AGE, BECAUSE
-IT WILL STOP THE BUCLE FOR AND IT WILL BE TEDIOUS TO CREATE ANOTHER PLAYLIST
-TO START FROM BUCLE FOR ENDED. (¡WORKING ON IT!)
+ALSO BE CAUTIOS IF YOU DOWNLOAD SOME VIDEO WITH RESTRICTION OF AGE (BECAUSE 
+YOU NEED TO BE LOGGED TO HAVE A "PUBLIC" VIEW OR THE USER ACCOUNT MUST HAVE THE 
+UPPER AGER). ALSO IT COULD FAIL IF THE VIDEO DOESN'T EXIST ANYMORE.
+For luck, I generated a script with a function to download videos in a range
+you will specify later when you execute the code.
+For a better understanding, if you have a playlist with 200 videos and in the
+video number 137 it fails because there was some of the incidents I commented,
+you have the possibility to download from 138 to 200, that is the rest of the
+other ones you've already downloaded.
+To know in which video you failed and to restart the download you will need 
+first to check the data you created ago in the 'download-compilation.txt'
+and then visualize, when you execute the script, the 'info-videos.txt' file
+to know what range should be taken (obviously if you aimed to download
+all the videos from the start, then the final range(FR) will be the maximum).
 
 "-----------------------------------------------------------------------------"
 
